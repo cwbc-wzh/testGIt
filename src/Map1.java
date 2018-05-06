@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Map1 {
 
@@ -32,15 +29,21 @@ public class Map1 {
         Scanner sc = new Scanner(System.in);
         String year = sc.nextLine();
         //List<String> mapKey = worldcup.keySet();
-        if(!worldcup.containsKey(year)) {
+        if (!worldcup.containsKey(year)) {
             System.out.println("没有举办世界杯");
         } else {
-            for(Map.Entry<String,String> entry : worldcup.entrySet()) {
-                if(year.equals(entry.getKey())) {
-                    System.out.println(entry.getValue());
+            System.out.println(worldcup.get(year));
+        }
+        String team = sc.nextLine();
+
+        if (worldcup.containsValue(team)) {
+            for (String tempyear : worldcup.keySet()) {
+                if (team.equals(worldcup.get(tempyear))) {
+                    System.out.println(tempyear);
                 }
             }
+        } else {
+            System.out.println("没有获得过世界杯");
         }
     }
-
 }
